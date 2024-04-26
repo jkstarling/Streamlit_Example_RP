@@ -14,9 +14,14 @@ st.write("""
 
 df = pd.read_csv('G:\My Drive\kordis\Streamlit_Example_RP\RP_SL_app\RP_example_data_1-23_3_24.csv')
 
-# if csvFile is not None:
-# df = pd.read_csv(myfile)
+# Convert 'date' column to datetime format
+df['date'] = pd.to_datetime(df['date'])
+# Format 'date' as "MMM-YY"
+# df['date'] = df['date'].dt.strftime('%b-%y')
+df['date2'] = pd.to_datetime(df['date'], format='%b %Y').dt.to_period('M')
 
 # if "dataframe" not in st.session_state:
 st.session_state["dataframe"] = df
-st.dataframe(st.session_state.dataframe)
+
+## show dataframe
+# st.dataframe(st.session_state.dataframe)
