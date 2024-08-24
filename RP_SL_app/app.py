@@ -15,7 +15,11 @@ st.write("""
 
 # os.chdir(r"G:/My Drive/kordis/SL_example/PythonStreamlit")
 # df = pd.read_csv('G:\My Drive\kordis\Streamlit_Example_RP\RP_SL_app\RP_example_data_1-23_3_24.csv')
-df = pd.read_csv('RP_example_data_1-23_3_24.csv')
+cwd = os.getcwd()
+file_path = os.path.join(cwd, 'RP_example_data_1-23_3_24.csv')
+
+# Read the CSV file into a DataFrame
+df = pd.read_csv(file_path)
 
 # Convert 'date' column to datetime format
 df['date'] = pd.to_datetime(df['date'])
